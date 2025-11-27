@@ -1,0 +1,216 @@
+:root {
+    /* Визначення змінних для Dark Mode */
+    --color-bg-dark: #121212;        /* Основний фон (майже чорний) */
+    --color-bg-card: #1e1e1e;        /* Фон карток/постів */
+    --color-bg-header-footer: #0a0a0a; /* Дуже темний фон для шапки/підвалу */
+    --color-text-primary: #ffffff;   /* Основний текст (білий) */
+    --color-text-secondary: #aaaaaa; /* Додатковий текст (світло-сірий) */
+
+    /* Акцентні кольори (для кнопок та назв) */
+    --color-accent: #00cc66;         /* Яскраво-салатовий акцент */
+    --color-accent-hover: #00a352;   /* Темніший салатовий */
+    --color-btn-secondary: #555555;  /* Сіра кнопка */
+    --color-btn-secondary-hover: #777777; /* Світліша сіра кнопка */
+
+    /* Тіні для Dark Mode (менш помітні, але створюють глибину) */
+    --shadow-light: 0 4px 8px rgba(0, 0, 0, 0.6);
+    --shadow-deep: 0 8px 16px rgba(0, 0, 0, 0.9);
+}
+
+/* 1. Body: Темний фон і світлий текст */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+}
+
+/* 2. Header: Дуже темний фон */
+header {
+    background-color: var(--color-bg-header-footer);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-deep);
+}
+
+/* 3. Стиль кнопок: Салатовий акцент */
+.button {
+    background-color: var(--color-accent);
+    color: var(--color-bg-dark); /* Темний текст на яскравому фоні */
+    text-decoration: none;
+    padding: 12px 25px;
+    font-size: 20px;
+    border-radius: 8px;
+    display: inline-block;
+    box-shadow: var(--shadow-light);
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+/* HOVER для .button */
+.button:hover {
+    background-color: var(--color-accent-hover);
+    box-shadow: var(--shadow-deep);
+    transform: translateY(-2px);
+}
+
+/* 4. Навігація: Середньо-сірий фон */
+nav {
+    background-color: var(--color-bg-card);
+    border: none;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: var(--shadow-light);
+}
+
+/* 5. Навігаційні посилання */
+.nav-link {
+    font-size: 18px;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    display: block;
+    padding: 5px 10px;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+    font-weight: 600;
+}
+
+/* HOVER для .nav-link: Салатовий акцент */
+.nav-link:hover {
+    color: var(--color-accent);
+    transform: scale(1.05);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    display: block;
+    margin-top: 5px;
+    right: 0;
+    background: var(--color-accent);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+    left: 0;
+    background: var(--color-accent);
+}
+
+/* 6. Заголовок: Салатовий акцент */
+h1 {
+    text-align: center;
+    color: var(--color-accent);
+    font-size: 42px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* 7. Назва піци: Салатовий акцент */
+.post h2, .pizza-title {
+    color: var(--color-accent);
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* 8. Текст посту: Світло-сірий текст на середньо-сірій картці */
+.post-text {
+    font-size: 18px;
+    text-align: left;
+    color: var(--color-text-secondary); /* Додатковий сірий колір */
+}
+
+/* 9. Блок info */
+.info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+/* 10. Пост (Карта): Середньо-сірий фон */
+.post {
+    background-color: var(--color-bg-card);
+    padding: 25px;
+    width: 300px;
+    margin: 20px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    color: var(--color-text-primary); /* Текст всередині картки - білий */
+}
+
+/* HOVER для .post */
+.post:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-deep);
+}
+
+/* 11. Кнопка "Читати статтю" (Додаткова сіра кнопка) */
+.article-but {
+    text-decoration: none;
+    background-color: var(--color-btn-secondary);
+    color: var(--color-text-primary);
+    font-size: 18px;
+    text-align: center;
+    padding: 10px 20px;
+    display: block;
+    border-radius: 6px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* HOVER для .article-but */
+.article-but:hover {
+    background-color: var(--color-btn-secondary-hover);
+    transform: scale(1.05);
+}
+
+/* 12. Footer: Дуже темний фон */
+footer {
+    background-color: var(--color-bg-header-footer);
+    color: var(--color-text-primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 40px;
+    margin-top: 40px;
+    box-shadow: var(--shadow-deep);
+}
+
+/* 13. Текст футера */
+.footer-text {
+    font-size: 16px;
+    margin: 0;
+}
+
+.footer-text span {
+    color: var(--color-accent); /* Салатовий акцент у підвалі */
+    font-weight: bolder;
+}
+
+/* 14. Соцмережі */
+.social {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* HOVER для .social */
+.social:hover {
+    opacity: 0.8;
+    transform: scale(1.1);
+}
